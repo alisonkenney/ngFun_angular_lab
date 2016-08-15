@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="ngFun">
+<!-- {{4+1}}
+{{"hello" + " " + "world"}}
+{{ "hola!".toUpperCase() }}
+{{['s','w','e','e','t','n','e','s','s'].join("")}} -->
+
+<div ng-controller="PokemonController">
+    <h1>{{catchphrase.toUpperCase()}}</h1>
+    <h1>Trainer - {{trainer.name}}</h1>
+	Enter your trainer name:
+	<input ng-model="trainer.name" placeholder="Enter your name">
+    <!-- <pre id="default-spacing">{{ {pokemon} | json }}</pre>
+    <ul>
+    <li ng-repeat="poke in pokemon">{{poke.name}}</li>
+	</ul> -->
+	Search for a Pokemon:
+	<input ng-model="pokemonSearch" placeholder="Search">
+	<div class="poke-table">
+		<table class="table table-striped">
+			<thead>
+	          <tr class="poke-header">
+	            <th>Ndex</th>
+	            <th>Name</th>
+	            <th>Type</th>
+	            <th>Nemesis</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+			<tr ng-repeat="poke in pokemon | orderBy:'Ndex' | filter: pokemonSearch ">
+	    		<td>{{ poke.Ndex }}</td>
+	    		<td>{{ poke.name }}</td>
+	    		<td>{{ poke.type }}</td>
+	    		<td>{{poke.name|reverse}}</td>
+	  		</tr>
+	  		</tbody>
+		</table>
+	</div>
+
+</div>
+
+
+</body>
+</html>
